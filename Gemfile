@@ -2,12 +2,13 @@
 
 source "https://rubygems.org"
 
-# gem "rails" #
 
 group :test do
 
   gem 'rspec'
   gem 'capybara'
   gem 'httparty'
-  end
+  gem 'webdrivers'
+  gem 'ffi'
+end
 

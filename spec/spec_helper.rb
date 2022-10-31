@@ -1,13 +1,16 @@
 
-ENV['BASE_URI'] = 'test'
-
-
 
 require 'rspec'
 require 'httparty'
+require 'capybara/rspec'
+require 'capybara/dsl'
+require 'webdrivers/chromedriver'
+require_relative '../support/initialize_capybara'
 require_relative '../support/env'
 require_relative '../support/global_instances/my_deck_global_instance'
+require_relative '../support/global_instances/game_user_actions_instance'
 require_relative '../services/deck_services'
+require_relative '../pages/home_page'
 #require 'pry-nav'
 
 
@@ -43,6 +46,16 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.include Capybara::DSL, :features
+
+  config.define_derived_metadata(file_path: %r{/spec/features/}) do |metadata|
+    metadata[:features] = true
+  end
+
+  config.before :all, :features do
+    require_relative '../support/initialize_capybara'
   end
 
   # rspec-mocks config goes here. You can use an alternate test double

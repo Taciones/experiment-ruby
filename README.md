@@ -1,5 +1,5 @@
 # ruby-experiment
-Repo to create some automation for https://deckofcardsapi.com experiments with Ruby and Rspec
+Repo to create some automation for https://deckofcardsapi.com experiments with Ruby and Rspec and to mimic user actions on the game Checkers(https://www.gamesforthebrain.com/game/checkers/) with Capybara + Rspec
 
 ### pre-requisites:
  - Install ruby on machine: https://rubyinstaller.org
